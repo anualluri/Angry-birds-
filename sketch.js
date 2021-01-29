@@ -40,11 +40,11 @@ function setup(){
     log4 = new Log(760,120,150, PI/7);
     log5 = new Log(870,120,150, -PI/7);
 
-    bird = new Bird(100,100);
+    bird = new Bird(100,50);
 
  
     var pointBB={
-        x:200, y:100
+        x:200, y:50
     };
     slingshot = new Sling(bird.body, pointBB);
 
@@ -76,7 +76,7 @@ function draw(){
     log4.display();
     log5.display();
    
-
+    bird.display();
     slingshot.display();
 
  
@@ -84,7 +84,7 @@ function draw(){
    
 
 
-    bird.display();
+    
     platform.display();
 }
 
