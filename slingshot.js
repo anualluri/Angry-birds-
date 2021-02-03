@@ -1,6 +1,6 @@
 class Sling{
     constructor(bodyAA, pointBB){
-
+     
       this.sling1=loadImage("sprites/sling1.png")
       this.sling2=loadImage("sprites/sling2.png")
       this.sling3=loadImage("sprites/sling3.png")
@@ -10,6 +10,8 @@ class Sling{
         stiffness:0.04,
         length:10,
     }
+
+    this.bodyA = bodyAA;
 
     this.sling= Matter.Constraint.create(options);
     World.add(world, this.sling);
@@ -48,5 +50,10 @@ class Sling{
 
  fly(){
     this.sling.bodyA=null;
+  }
+
+
+  attach(){
+    this.sling.bodyA=this.bodyA;
   }
 }

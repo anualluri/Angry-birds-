@@ -100,3 +100,11 @@ function mouseReleased(){
     slingshot.fly();
     console.log('I have been reasleased :)');
 }
+
+
+function keyPressed(){
+    if(keyCode===32){
+        slingshot.attach()
+        console.log("space is pressed")
+    }
+}
