@@ -4,6 +4,10 @@ const Bodies = Matter.Bodies;
 const Cont =Matter.Constraint
 
 
+var FLY = 0;
+var ONSLING = 1;
+var gamestate = ONSLING;
+
 var engine, world;
 var box1, pig1;
 var backgroundImg,platform;
@@ -15,6 +19,10 @@ function preload() {
 }
 
 function setup(){
+    var myVariable =[1, "2", 3];
+    var IIDArray = [[1, 2], [3, 4]];
+    var item = IIDArray[0];
+    console.log("hi " + item [0]);
     var canvas = createCanvas(1200,400);
     engine = Engine.create();
     world = engine.world;
@@ -90,13 +98,18 @@ function draw(){
 
 
 function mouseDragged(){
-    console.log('I am being dragged ˚¬˚');
+    
+
+    if(gamestate===ONSLING){
+        console.log('I am being dragged ˚¬˚');
     Matter.Body.setPosition(bird.body, {
         x: mouseX, y: mouseY
     });
+    }
 }
 
 function mouseReleased(){
+    gamestate = FLY
     slingshot.fly();
     console.log('I have been reasleased :)');
 }
@@ -104,6 +117,7 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode===32){
+        gamestate = ONSLING
         slingshot.attach()
         console.log("space is pressed")
     }
