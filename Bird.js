@@ -26,4 +26,8 @@ class Bird extends BaseClass {
       image(this.smkimage, item[0], item[1]);
     }
   }
+  clearTrajectory(){
+    this.trajPath = [];
+  }  
 }
+

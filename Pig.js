@@ -30,7 +30,7 @@ class Pig extends BaseClass {
      score++;
     }
 
-console.log("it wrks")
+// console.log("it wrks")
   }
 
 };

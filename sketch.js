@@ -67,7 +67,8 @@ function setup(){
 function draw(){
     background(backgroundImg);
     Engine.update(engine);
-     
+    sum(100, 200);
+    sum(400, 200)
     
 
     box1.display();
@@ -118,6 +119,11 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode===32){
+        bird.clearTrajectory();
+        Matter.Body.setPosition(bird.body, {
+            x: 200, y:50
+        })
+        Matter.Body.setAngle(bird.body, 0)
         gamestate = ONSLING
         slingshot.attach()
         console.log("space is pressed")
@@ -135,11 +141,13 @@ async function getTime(){
     }else{
         backgroundImg = loadImage("sprites/bg.png");
         console.log("if 2")
-    }
-    
-    
+    }  
+}
 
 
-
-    //console.log(hour);
+function sum(n1, n2){
+    var num1= 10;
+    var num2= 20;
+    var ansr= n1 + n2
+    console.log(ansr);
 }
