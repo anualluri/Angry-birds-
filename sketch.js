@@ -16,6 +16,7 @@ var slingshot;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
+    getTime();
 }
 
 function setup(){
@@ -56,7 +57,7 @@ function setup(){
     };
     slingshot = new Sling(bird.body, pointBB);
 
- 
+    
 
    
     
@@ -66,11 +67,17 @@ function setup(){
 function draw(){
     background(backgroundImg);
     Engine.update(engine);
+     
     
+
     box1.display();
     box2.display();
     ground.display();
     pig1.display();
+
+    pig1.countScore();
+    pig3.countScore();
+
     log1.display();
 
     box3.display();
@@ -86,13 +93,7 @@ function draw(){
    
     bird.display();
     slingshot.display();
-
- 
-
-   
-
-
-    
+     
     platform.display();
 }
 
@@ -121,4 +122,24 @@ function keyPressed(){
         slingshot.attach()
         console.log("space is pressed")
     }
+}
+
+async function getTime(){
+    var APIresp = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles");
+    var APIrespJSON = await APIresp.json();
+    var time = APIrespJSON.datetime;
+    var hour = time.slice(11, 13)
+    if(hour>16){
+        backgroundImg = loadImage("sprites/bg2.jpg");
+        console.log("if 1")
+    }else{
+        backgroundImg = loadImage("sprites/bg.png");
+        console.log("if 2")
+    }
+    
+    
+
+
+
+    //console.log(hour);
 }

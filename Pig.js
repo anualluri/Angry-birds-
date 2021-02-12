@@ -1,14 +1,17 @@
+var score=0;
 class Pig extends BaseClass {
+
   constructor(x, y){
     super(x,y,50,50);
     this.image = loadImage("sprites/enemy.png");
-
     this.visiblity=255// 255 means 11111111 which means fully visible to understand this you need to count the ones, the answer would eb 8 so now you mukltiply 2 to the power of 8 and then you can get 256 but since all numbers in coding start from 0 you need to subtract one to get 255
   }
 
   display(){
-   console.log(this.body.speed);
-
+    fill("white");
+    textSize(35);
+    text(score, 750, 70)
+   //console.log(this.body.speed);
    if(this.body.speed<3){
     super.display();
    }else{
@@ -20,6 +23,14 @@ class Pig extends BaseClass {
      pop();
    }
    
+  }
+
+  countScore(){
+    if(this.visiblity<0 && this.visiblity>-1005){
+     score++;
+    }
+
+console.log("it wrks")
   }
 
 };
